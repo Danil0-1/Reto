@@ -1,37 +1,37 @@
 -- Active: 1749997252291@@127.0.0.1@3307@Taller
 CREATE TABLE paciente (
-    paciente_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
     documentacion VARCHAR(50),
     telefono VARCHAR(12),
-    solicitud VARCHAR(255)
+    FOREIGN KEY (solicitud_id) REFERENCES solicitud(id)
 );
 
 CREATE TABLE dentista(
-    staff_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
-    especializacion VARCHAR(255)
+    FOREIGN KEY (especialidad_id) REFERENCES especialidad(id)
 );
 
-CREATE TABLE consultorios (
-    consultorio_id INT AUTO_INCREMENT PRIMARY KEY
+CREATE TABLE consultorio (
+    id INT AUTO_INCREMENT PRIMARY KEY
 );
 
 CREATE TABLE cita (
     cita_id INT AUTO_INCREMENT PRIMARY KEY,
-    staff VARCHAR (255),
-    paciente VARCHAR(255),
-    consultorio VARCHAR(255),
+    FOREIGN KEY (staff_id) REFERENCES dentista(id),
+    FOREIGN KEY (paciente_id) REFERENCES paciente(id),
+    FOREIGN KEY (consultorio_id) REFERENCES consultorio(id),
     dia DATE,
     hora TIME
 );  
 
 CREATE TABLE solicitud (
-    solicitud_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     solicitud VARCHAR (255)
-);
+);    
 
 CREATE TABLE especialidad (
-    especialidad_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY, 
     especializacion VARCHAR (255)
 )
