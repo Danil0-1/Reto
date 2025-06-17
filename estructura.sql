@@ -3,12 +3,14 @@ CREATE TABLE paciente (
     paciente_id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
     documentacion VARCHAR(50),
-    telefono VARCHAR(12)
+    telefono VARCHAR(12),
+    solicitud VARCHAR(255)
 );
 
 CREATE TABLE dentista(
     staff_id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255)
+    nombre VARCHAR(255),
+    especializacion VARCHAR(255)
 );
 
 CREATE TABLE consultorios (
@@ -23,3 +25,13 @@ CREATE TABLE cita (
     dia DATE,
     hora TIME
 );  
+
+CREATE TABLE solicitud (
+    solicitud_id INT AUTO_INCREMENT PRIMARY KEY,
+    solicitud VARCHAR (255)
+);
+
+CREATE TABLE especialidad (
+    especialidad_id INT AUTO_INCREMENT PRIMARY KEY,
+    especializacion VARCHAR (255)
+)
